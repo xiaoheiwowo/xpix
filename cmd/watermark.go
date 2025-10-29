@@ -18,7 +18,7 @@ var watermarkCmd = &cobra.Command{
 	Long: `为图像添加水印，支持：
   - 文字水印 (--text)
   - 图片水印 (--image)
-  - 位置控制 (--position: top-left, top-right, bottom-left, bottom-right, center)
+  - 位置控制 (--position: top-left, top-right, top-center, bottom-left, bottom-right, bottom-center, center)
   - 透明度控制 (--opacity)`,
 	Args: cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {

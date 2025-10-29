@@ -15,10 +15,10 @@ import (
 
 // WatermarkOptions 水印选项
 type WatermarkOptions struct {
-	Text     string  // 文字水印内容
-	Image    string  // 图片水印路径
-	Position string  // 位置: top-left, top-right, bottom-left, bottom-right, center
-	Opacity  float64 // 透明度 0-1
+	Text     string
+	Image    string
+	Position string
+	Opacity  float64
 }
 
 // Watermark 添加水印
