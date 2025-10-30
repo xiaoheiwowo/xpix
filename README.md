@@ -89,6 +89,22 @@ xpix adjust photo.jpg --brightness 20
 
 # 增加对比度和饱和度
 xpix adjust photo.jpg --contrast 15 --saturation 10 -o output.jpg
+
+# 曝光和锐化
+xpix adjust photo.jpg --exposure 10 --sharpen 30
+
+# 色温调整（低于 6500K 偏暖，高于 6500K 偏冷）
+xpix adjust photo.jpg --temperature 5000  # 偏暖（日出/日落）
+xpix adjust photo.jpg --temperature 7500  # 偏冷（阴天）
+
+# 去雾
+xpix adjust photo.jpg --dehaze 50
+
+# Gamma 调整
+xpix adjust photo.jpg --gamma 1.2
+
+# 组合调整
+xpix adjust photo.jpg -b 10 -t 15 -s 20 -e 5 --sharpen 25 --dehaze 30 -o enhanced.jpg
 ```
 
 ### 调整图像尺寸
@@ -168,13 +184,25 @@ xpix info photo.jpg
 
 ### `xpix adjust`
 
-调整图像的亮度、对比度、饱和度。
+调整图像的亮度、对比度、饱和度等参数。
 
 | 参数 | 简写 | 说明 | 范围 |
 |------|------|------|------|
 | `--brightness` | `-b` | 亮度调整 | -100 到 100 |
-| `--contrast` | `-c` | 对比度调整 | -100 到 100 |
+| `--contrast` | `-t` | 对比度调整 | -100 到 100 |
 | `--saturation` | `-s` | 饱和度调整 | -100 到 100 |
+| `--exposure` | `-e` | 曝光调整 | -100 到 100 |
+| `--sharpen` | - | 锐化强度 | 0 到 100 |
+| `--gamma` | - | Gamma 调整 | 0.1 到 3.0 |
+| `--temperature` | - | 色温调整（开尔文） | 2000-10000（6500 为标准日光） |
+| `--dehaze` | - | 去雾强度 | 0 到 100 |
+
+**色温参考：**
+- 2000-3000K：暖光（烛光、日出/日落）
+- 4000-5000K：中性偏暖（家用灯泡）
+- 5500-6500K：标准日光（6500K 为默认值）
+- 7000-8000K：阴天
+- 9000-10000K：冷光（阴影区域）
 | `--output` | `-o` | 输出文件路径 | - |
 
 ### `xpix resize`
